@@ -1,13 +1,20 @@
 // Thanks http://stackoverflow.com/a/5920206
 // details-block-content
-function doRequest(word) {
-    var textElm = ".menu-input";
-    textElm.value = word;
-    setTimeout(function() {
-        var evt = document.createEvent("KeyboardEvent");
-        (evt.initKeyEvent || evt.initKeyboardEvent)("keypress", true, true, window, 0, 0, 0, 0, 0, "\n".charCodeAt(0));
-        return body.dispatchEvent(evt);
-    }, 3000);
+var PARTIY = 0;
+var MODULUS = 4;
+function doRequest() {
+    fetch(`http://localhost:5001/word/${PARITY}`).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        var textElm = document.querySelector(".menu-input");
+        textElm.value = word'
+        textElm.focus();
+        PARITY += MODULUS;
+    });
 }
-doRequest("abcdefg");
+function doInsanity() {
+    setInterval(function() {
+        doRequest();
+    }, 2000);
+}
 // setInterval(doRequest, 2500);
