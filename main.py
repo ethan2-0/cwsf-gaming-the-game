@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS, cross_origin
 
 words = []
 with open("words.txt", "r") as f:
@@ -13,11 +14,13 @@ def get_word(index_in):
     most_significant = (index - (index % 100)) // 100
     return "%s%s" % (words[most_significant], least_significant)
 
-app = Flask(__name__)
-
-@app.route("/word/<int:index>")
-def serve_word(index):
-    return get_word(index)
 
 if __name__ == "__main__":
+    app = Flask(__name__)
+    CORS(app)
+
+    @app.route("/word/<int:index>")
+    def serve_word(index):
+        return get_word(index)
+
     app.run(port=5001)
