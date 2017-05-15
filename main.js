@@ -7,7 +7,7 @@ function doRequest() {
         return response.text();
     }).then(function(text) {
         var textElm = document.querySelector(".menu-input");
-        textElm.value = word'
+        textElm.value = word;
         textElm.focus();
         PARITY += MODULUS;
     });
