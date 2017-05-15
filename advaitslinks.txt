@@ -1,0 +1,2 @@
+https://eventmobi.com/api/events/15652/gamify/answers
+https://eventmobi.com/api/events/gamify/answers
