@@ -1,0 +1,30 @@
+from selenium import webdriver
+import time
+words = []
+with open("words.txt", "r") as f:
+    words = [x.replace("\n", "") for x in f.readlines()]
+
+webpage = "https://eventmobi.com/cwsf-espc/game/209225/challenges"
+##term = "hello"
+driver = webdriver.Chrome(executable_path="C:\\Users\\advai\\Downloads\\chromedriver_win32\\chromedriver.exe")
+driver.get(webpage)
+time.sleep(30)
+
+##actions = new Actions(driver);
+##actions.moveToElement(webpage);
+##actions.click();
+
+print("next")
+##ebox = driver.find_element_by_class_name("menu-inputng-pristineng-validng-emptyng-touched")
+ebox = driver.find_element_by_css_selector(".menu-input")#".gamify-form")
+sbox = driver.find_element_by_class_name("button-half-block")
+#400 do more bfr
+i = 2884
+while True:
+    for j in range(100):
+        term = words[i] + str(j)
+        ebox.send_keys(term)
+        sbox.click()
+        time.sleep(0.1)
+    i += 1
+##actions.build().perform();
