@@ -11,11 +11,10 @@ ebox = driver.find_element_by_css_selector(".gamify-form input[type=text]")
 submit = driver.find_element_by_name("submit")
 ##ebox.click()
 
-i = 5336
+i = 1
 while True:
-    for j in range(0, 100):
-        ebox.send_keys(words[i] + str(j))
-        submit.click()
-        time.sleep(0.15)
-    i += 1
+    ebox.send_keys(words[i])
+    submit.click()
+    time.sleep(0.15)
+    i += 4
 
