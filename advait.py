@@ -1,7 +1,7 @@
 from selenium import webdriver
 import time
 words = []
-with open("words.txt", "r") as f:
+with open("words2.txt", "r") as f:
     words = [x.replace("\n", "") for x in f.readlines()]
 driver = webdriver.Chrome(executable_path="C:/Users/advai/Downloads/chromedriver_win32/chromedriver.exe")
 website = "https://eventmobi.com/cwsf-espc/game/209225/challenges"
@@ -11,7 +11,7 @@ ebox = driver.find_element_by_css_selector(".gamify-form input[type=text]")
 submit = driver.find_element_by_name("submit")
 ##ebox.click()
 
-i = 3044
+i = 5336
 while True:
     for j in range(0, 100):
         ebox.send_keys(words[i] + str(j))
